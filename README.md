@@ -1,8 +1,8 @@
 # RailsComponents
-Short description and motivation.
+Re-usable rails partials with styles and front-end functionality. If you're like us, you might spend a little too much time tinkering with css, html, and js where in reality you need to get functional prototypes presentable for continuous feedback. Validating your business logic is complex enough, so rails_components abstracts the complexities of building functional UI/UX.
 
 ## Usage
-How to use my plugin.
+RailsComponents is a rails engine built on top of ViewComponents and Tailwind CSS.
 
 ## Installation
 Add this line to your application's Gemfile:
