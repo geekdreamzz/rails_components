@@ -17,11 +17,20 @@ module RailsComponents
 
         send("#{prop}=", RailsComponents.config.send(prop)) if RailsComponents.config.respond_to?(prop)
       end
+
+      set_dynamic_props(**args)
     end
 
     # a way for sub-classes to override/add custom props/vals
     def dynamic_props
       []
+    end
+
+    def set_dynamic_props(**args)
+      args.each do |prop,value|
+        instance_variable_set("@#{prop}", value)
+        instance_variable_get("@#{prop}")
+      end
     end
 
     def partial_props

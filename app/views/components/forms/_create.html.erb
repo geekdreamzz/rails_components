@@ -1,0 +1,24 @@
+<div class="mx-auto max-w-7xl sm:px-6 lg:px-8 mt-4 mb-4">
+
+<%= form_with(model: render_model, local: true) do |form| %>
+
+	<div class="space-y-12">
+		<div class="border-b border-gray-900/10 pb-12">
+			<h2 class="text-base font-semibold leading-7 text-gray-900"><%= render_model.class.to_s %></h2>
+			<% render_model.class.columns.each do |column| %>
+
+				<% next if column.name == 'id' || column.name == 'created_at' || column.name == 'updated_at' %>
+
+				<div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+					<%= render partial: "components/forms/field_groups/#{column.type.to_s}", locals: {column: column, form: form} %>
+				</div>
+
+			<% end %>
+			<div class="mt-6 flex items-center justify-end gap-x-6">
+				<%= form.submit 'Save', { class: 'rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'} %>
+			</div>
+		</div>
+	</div>
+<% end %>
+
+</div>
