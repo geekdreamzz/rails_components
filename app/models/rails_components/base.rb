@@ -1,4 +1,5 @@
 require 'view_component'
+ViewComponent::Base.config.view_component_path = ''
 
 module RailsComponents
   class Base < ::ViewComponent::Base
@@ -45,7 +46,7 @@ module RailsComponents
     end
 
     class << self
-      def set_partial(partial_path)
+      def set_partial(partial_path = '')
         @partial = partial_path
       end
 

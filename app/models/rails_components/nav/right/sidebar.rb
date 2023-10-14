@@ -6,7 +6,7 @@ module RailsComponents
 
         # add custom props and assign vals in the args initializer
         def dynamic_props
-          %W{ form_partial }
+          %W{ form_partial component_class component_args }
         end
 
         def initialize(**args)

@@ -17,7 +17,8 @@
 						To: "translate-x-full"
 				-->
 				<div class="pointer-events-auto w-screen max-w-md">
-					<%= render partial: form_partial %>
+					<%= render partial: form_partial if local_assigns[:form_partial] %>
+					<%= render component_class.new(**component_args) if local_assigns[:component_class] %>
 				</div>
 			</div>
 		</div>

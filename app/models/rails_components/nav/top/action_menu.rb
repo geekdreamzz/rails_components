@@ -1,12 +1,12 @@
 module RailsComponents
   module Nav
     module Top
-      class WithHeroFlyout < ::RailsComponents::Base
-        set_partial "components/nav/top/with_hero_flyout"
+      class ActionMenu < ::RailsComponents::Base
+        set_partial "components/nav/top/action_menu"
 
         # add custom props and assign vals in the args initializer
         def dynamic_props
-          %W{ heading list1 list2 feature1 feature2 items }
+          %W{ heading slug items }
         end
 
         def initialize(**args)

@@ -4,6 +4,11 @@ export class Sidebar {
 		let nav = document.getElementById('right-sidebar')
 		nav.classList.add('hidden')
 	}
+
+	static open() {
+		let nav = document.getElementById('right-sidebar')
+		nav.classList.remove('hidden')
+	}
 }
 
 window.RailsComponents = {

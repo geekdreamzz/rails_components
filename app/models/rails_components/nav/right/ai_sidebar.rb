@@ -6,7 +6,7 @@ module RailsComponents
 
         # add custom props and assign vals in the args initializer
         def dynamic_props
-          %W{ }
+          %W{ ai_name }
         end
 
         def initialize(**args)

@@ -1,0 +1,36 @@
+<div class="<%= RailsComponents.config.container_styles %>">
+	<h2 class="text-base font-semibold leading-6 text-gray-900">
+		Welcome <%= current_user.full_name %>
+	</h2>
+	<p class="mt-1 text-sm text-gray-500">
+		<%= slug %>
+	</p>
+
+	<!--	ADD RECENT ACTIONS HERE - we need to cache activity in db and render it here -->
+
+	<ul role="list" class="mt-6 grid grid-cols-1 gap-6 border-b border-t border-gray-200 py-6 sm:grid-cols-2">
+		<% items.each do |item| %>
+			<li class="flow-root" onclick="<%= item[:action] %>" data-template="<%= item[:dynamic_sidebar_template] %>">
+				<div class="relative -m-2 flex items-center space-x-4 rounded-xl p-2 focus-within:ring-2 focus-within:ring-indigo-500 hover:bg-gray-50">
+					<div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-lg <%= item[:bg_color] %>">
+						<svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+							<%= render partial: "components/icons/#{item[:icon]}" %>
+						</svg>
+					</div>
+					<div>
+						<h3 class="text-sm font-medium text-gray-900">
+							<a href="#" class="dynamic-sidebar focus:outline-none">
+								<span class="absolute inset-0" aria-hidden="true"></span>
+								<span><%= item[:heading] %></span>
+								<span aria-hidden="true"> &rarr;</span>
+							</a>
+						</h3>
+						<p class="mt-1 text-sm text-gray-500">
+							<%= item[:description] %>
+						</p>
+					</div>
+				</div>
+			</li>
+		<% end %>
+	</ul>
+</div>
