@@ -1,0 +1,41 @@
+<%= form_with(model: crud_model, local: true, html: { class: 'flex h-full flex-col divide-y divide-gray-200 bg-white shadow-xl' }) do |form| %>
+	<div class="h-0 flex-1 overflow-y-auto">
+		<div class="bg-indigo-700 px-4 py-6 sm:px-6">
+			<div class="flex items-center justify-between">
+				<h2 class="text-base font-semibold leading-6 text-white" id="slide-over-title">
+					<%= crud_model.class.to_s %>
+				</h2>
+				<div onclick="RailsComponents.Nav.Right.Sidebar.close()" class="ml-3 flex h-7 items-center">
+					<button type="button" class="rounded-md bg-indigo-700 text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
+						<span class="sr-only">Close panel</span>
+						<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="flex flex-1 flex-col justify-between">
+			<div class="divide-y divide-gray-200 px-4 sm:px-6">
+				<div class="space-y-6 pb-5 pt-6">
+					<% crud_model.class.columns.each do |column| %>
+
+						<% next if column.name == 'id' || column.name == 'created_at' || column.name == 'updated_at' %>
+
+						<div class="flex flex-1 flex-col justify-between">
+							<div class="divide-y divide-gray-200 px-4 sm:px-6">
+								<div class="space-y-6 pb-5 pt-6">
+									<%= render partial: "components/forms/field_groups/#{column.type.to_s}", locals: {column: column, form: form} %>
+								</div>
+							</div>
+						</div>
+
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="flex flex-shrink-0 justify-end px-4 py-4">
+		<%= form.submit 'Save', { class: 'ml-4 inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'} %>
+	</div>
+<% end %>

@@ -1,0 +1,15 @@
+<div id="overlay" class="fixed inset-0 bg-white hidden flex flex-col justify-start items-center z-50">
+	<div class="w-full px-4 flex justify-between items-center border-b pb-3 mb-3 bg-indigo-700 h-16">
+		<h2 id="overlay-title" class="text-lg font-semibold text-white my-auto">
+			<!--			Your Title Here-->
+		</h2>
+		<button id="closeOverlay" onclick="RailsComponents.Nav.Overlay.Full.close()" class="p-1">
+			<svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+			</svg>
+		</button>
+	</div>
+	<div id="dynamic-overlay-content" class="bg-gray-100 w-full h-full overflow-y-auto">
+		<!-- Content from Rails partial will appear here -->
+	</div>
+</div>

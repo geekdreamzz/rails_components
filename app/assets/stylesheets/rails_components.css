@@ -1,0 +1,10 @@
+#nav_top_with_hero_flyout {
+	opacity: 0;
+	transition: opacity 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+	pointer-events: none;
+}
+
+#nav_top_with_hero_flyout.visible {
+	opacity: 1;
+	pointer-events: auto;
+}

@@ -1,0 +1,11 @@
+<% if local_assigns[:size].blank? %>
+	<% size = '6' %>
+<% end %>
+
+<% if local_assigns[:color].blank? %>
+	<% color = 'text-gray-400' %>
+<% end %>
+
+<svg class="h-<%=size %> w-<%=size %> flex-none <%= color %>" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+	<%= render partial: "components/icons/#{icon}" %>
+</svg>

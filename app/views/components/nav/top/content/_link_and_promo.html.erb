@@ -1,0 +1,83 @@
+<div id="<%= item[:element_id] %>" class="top_nav_content absolute inset-x-0 top-0 -z-10 bg-white pt-16 shadow-lg ring-1 ring-gray-900/5">
+	<div class="mx-auto grid max-w-7xl grid-cols-1 gap-y-10 gap-x-8 py-10 px-6 lg:grid-cols-2 lg:px-8">
+		<div class="grid grid-cols-2 gap-x-6 sm:gap-x-8">
+			<div>
+				<h3 class="text-sm font-medium leading-6 text-gray-500">
+					<%= item[:list1][:heading] %>
+				</h3>
+				<div class="mt-6 flow-root">
+					<div class="-my-2">
+						<% item[:list1][:links].each do |link| %>
+							<a href="<%= link[:url] %>" class="flex gap-x-4 py-2 text-sm font-semibold leading-6 text-gray-900">
+								<%= render partial: 'components/icons/render', locals: { icon: link[:icon] } %>
+								<%= link[:label] %>
+							</a>
+						<% end %>
+					</div>
+				</div>
+			</div>
+			<div>
+				<h3 class="text-sm font-medium leading-6 text-gray-500">
+					<%= item[:list2][:heading] %>
+				</h3>
+				<div class="mt-6 flow-root">
+					<div class="-my-2">
+						<% item[:list2][:links].each do |link| %>
+							<a href="<%= link[:url] %>" class="flex gap-x-4 py-2 text-sm font-semibold leading-6 text-gray-900">
+								<%= render partial: 'components/icons/render', locals: { icon: link[:icon] } %>
+								<%= link[:label] %>
+							</a>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="grid grid-cols-1 gap-10 sm:gap-8 lg:grid-cols-2">
+			<h3 class="sr-only">Featured posts</h3>
+
+			<article class="relative isolate flex max-w-2xl flex-col gap-x-8 gap-y-6 sm:flex-row sm:items-start lg:flex-col lg:items-stretch">
+				<div class="relative flex-none">
+					<img class="aspect-[2/1] w-full rounded-lg bg-gray-100 object-cover sm:aspect-[16/9] sm:h-32 lg:h-auto" src="<%= item[:feature1][:img_url] %>" alt="">
+					<div class="absolute inset-0 rounded-lg ring-1 ring-inset ring-gray-900/10"></div>
+				</div>
+				<div>
+					<div class="flex items-center gap-x-4">
+						<time datetime="<%= item[:feature1][:date] %>" class="text-sm leading-6 text-gray-600"><%= item[:feature1][:date] %></time>
+						<a href="/search?categories=<%= item[:feature1][:category] %>" class="relative z-10 rounded-full bg-gray-50 py-1.5 px-3 text-xs font-medium text-gray-600 hover:bg-gray-100"><%= item[:feature1][:category] %></a>
+					</div>
+					<h4 class="mt-2 text-sm font-semibold leading-6 text-gray-900">
+						<a href="<%= item[:feature1][:url] %>">
+							<span class="absolute inset-0"></span>
+							<%= item[:feature1][:title] %>
+						</a>
+					</h4>
+					<p class="mt-2 text-sm leading-6 text-gray-600">
+						<%= item[:feature1][:preview] %>
+					</p>
+				</div>
+			</article>
+
+			<article class="relative isolate flex max-w-2xl flex-col gap-x-8 gap-y-6 sm:flex-row sm:items-start lg:flex-col lg:items-stretch">
+				<div class="relative flex-none">
+					<img class="aspect-[2/1] w-full rounded-lg bg-gray-100 object-cover sm:aspect-[16/9] sm:h-32 lg:h-auto" src="<%= item[:feature2][:img_url] %>" alt="">
+					<div class="absolute inset-0 rounded-lg ring-1 ring-inset ring-gray-900/10"></div>
+				</div>
+				<div>
+					<div class="flex items-center gap-x-4">
+						<time datetime="<%= item[:feature2][:date] %>" class="text-sm leading-6 text-gray-600"><%= item[:feature2][:date] %></time>
+						<a href="/search?categories=<%= item[:feature2][:category] %>" class="relative z-10 rounded-full bg-gray-50 py-1.5 px-3 text-xs font-medium text-gray-600 hover:bg-gray-100"><%= item[:feature2][:category] %></a>
+					</div>
+					<h4 class="mt-2 text-sm font-semibold leading-6 text-gray-900">
+						<a href="<%= item[:feature2][:url] %>">
+							<span class="absolute inset-0"></span>
+							<%= item[:feature2][:title] %>
+						</a>
+					</h4>
+					<p class="mt-2 text-sm leading-6 text-gray-600">
+						<%= item[:feature2][:preview] %>
+					</p>
+				</div>
+			</article>
+		</div>
+	</div>
+</div>

@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", ">= 7.0.4.3"
   spec.add_dependency "tailwindcss-rails", ">= 2.0.25"
   spec.add_dependency 'view_component', '>= 2.0'
+  spec.add_dependency 'ruby-openai', '>= 4.1'
 end
