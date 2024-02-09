@@ -1,8 +1,8 @@
 module RailsComponents
   module Nav
     module Top
-      class WithHeroFlyout < ::RailsComponents::Base
-        set_partial "components/nav/top/with_hero_flyout"
+      class FixedHeader < ::RailsComponents::Base
+        set_partial "components/nav/top/fixed_header"
 
         # add custom props and assign vals in the args initializer
         def dynamic_props

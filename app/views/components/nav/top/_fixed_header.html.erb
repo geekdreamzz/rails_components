@@ -1,0 +1,63 @@
+<div class="isolate z-40 shadow fixed" style="width: 100%; background-color: #002244; color: white">
+	<div class="" style="padding: 4px">
+		<div class="max-w-7xl flex">
+			<!-- Logo and business name -->
+			<div class="flex-shrink-0 inline-flex items-center">
+				<% if current_user %>
+					<a href="/" class="text-lg font-semibold text-gold ml-3">
+						<img class="h-12 w-12 rounded-full" src="<%= current_user.profile_photo %>" alt="Data For Good Institute Logo">
+					</a>
+				<% else %>
+					<a href="/" class="text-lg font-semibold text-gold ml-3">
+						<img class="h-12 w-12" src="/images/logo.png" alt="Data For Good Institute Logo">
+					</a>
+				<% end %>
+			</div>
+			<% items.each do |item| %>
+				<% if item[:menu_image] %>
+					<button onclick="<%= item[:onclick] %>" type="button" class="inline-flex items-center gap-x-1 text-sm font-semibold leading-6" style="position: absolute;margin-left: 10px;" aria-expanded="false">
+				<% else %>
+					<button onclick="<%= item[:onclick] %>" style="position: relative; margin-left: 7px" type="button" class="whitespace-nowrap inline-flex items-center gap-x-1 text-sm font-semibold leading-6">
+				<% end %>
+
+				<% if item[:menu_image] %>
+					<img src="<%= item[:menu_image] %>" class="w-5 h-5 rounded-full inline" alt="User profile"/>
+				<% end %>
+
+				<% if current_user %>
+					<%= current_user.full_name %>
+				<% else %>
+					<%= item[:heading] %>
+				<% end %>
+
+
+					<svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+						<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+					</svg>
+				</button>
+			<% end %>
+
+			<!-- search UX in topbar -->
+<!--			<div class="relative ml-1.5 flex-shrink-0 inline-flex w-full">-->
+<!--				<input type="text" placeholder="search for something..." style="border-radius: 15px; width: 55%" class="w-full border-b border-gray-300 focus:border-blue-500 focus:outline-none">-->
+<!--			</div>-->
+
+			<% if current_user == 'fsadfs' %>
+				<button data-template="templates/current_user/token_packages" onclick="RailsComponents.Nav.Right.DynamicSidebar.open(this)" class="flex-shrink-0 inline-flex items-center ml-1 border rounded-full bg-gold p-2" style="font-size: small;border-color: #a67c00;color: #a67c00;font-weight: 800;">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+					</svg>
+
+					&nbsp;
+					<%= number_with_delimiter(current_user.current_tokens, delimiter: ',') %> tokens
+				</button>
+		<% end %>
+
+		</div>
+	</div>
+
+	<% items.each do |item| %>
+		<%= render partial: "components/nav/top/content/#{item[:partial]}", locals: {item: item} %>
+	<% end %>
+
+</div>

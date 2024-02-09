@@ -1,13 +1,29 @@
 <div class="relative isolate z-40 shadow">
-	<div class="bg-white py-5">
-		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+	<div class="bg-white" style="padding-top: 4px">
+		<div class="mx-auto max-w-7xl lg:px-8">
+			<!-- Logo and business name -->
+			<div class="flex-shrink-0 inline-flex items-center">
+				<a href="/" class="text-lg font-semibold text-gold ml-3">
+					<img class="h-12 w-12" src="/images/logo.png" alt="Data For Good Institute Logo">
+				</a>
+			</div>
+
 			<% items.each do |item| %>
-				<button onclick="<%= item[:onclick] %>" type="button" class="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900" aria-expanded="false">
+				<% if item[:menu_image] %>
+					<button onclick="<%= item[:onclick] %>" type="button" class="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900" style="position: absolute;margin-left: 10px;" aria-expanded="false">
+				<% else %>
+					<button onclick="<%= item[:onclick] %>" style="position: absolute; top: 15px; margin-left: 7px" type="button" class="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900" aria-expanded="false">
+				<% end %>
+
+					<% if item[:menu_image] %>
+						<img src="<%= item[:menu_image] %>" class="w-5 h-5 rounded-full inline" alt="User profile">
+					<% end %>
+
 					<%= item[:heading] %>
-					<svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-						<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-					</svg>
-				</button>
+						<svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+							<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+						</svg>
+					</button>
 			<% end %>
 		</div>
 	</div>
