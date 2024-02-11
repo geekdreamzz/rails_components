@@ -27,7 +27,7 @@
 				<div class="mt-6 flow-root">
 					<div class="-my-2">
 						<% item[:list2][:links].each do |link| %>
-							<a href="<%= link[:url] %>" class="flex gap-x-4 py-2 text-sm font-semibold leading-6 text-gray-900">
+							<a href="<%= link[:url] %>" target="_blank" class="flex gap-x-4 py-2 text-sm font-semibold leading-6 text-gray-900">
 								<%= render partial: 'components/icons/render', locals: { icon: link[:icon] } %>
 								<%= link[:label] %>
 							</a>
