@@ -22,11 +22,20 @@
 						<div class="h-0 flex-1 overflow-y-auto">
 							<div class="px-4 py-6 sm:px-6" style="background-color: #002244; height: 55px">
 								<div class="flex items-center justify-between" style="margin-top: -10px">
+									<!-- Back Button -->
+									<div class="h-7 w-7">
+										<button type="button" id="dynamic-sb-bb" class="hidden rounded-md text-white focus:outline-none focus:ring-2 focus:ring-white">
+											<span class="sr-only">Go back</span>
+											<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+												<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+											</svg>
+										</button>
+									</div>
 									<h2 class="text-base font-semibold leading-6 text-white" id="dynamic-title">
 
 									</h2>
 									<div onclick="RailsComponents.Nav.Right.DynamicSidebar.close()" class="ml-3 flex h-7 items-center">
-										<button type="button" class="rounded-md  text-white focus:outline-none focus:ring-2 focus:ring-white">
+										<button type="button" class="rounded-md text-white focus:outline-none focus:ring-2 focus:ring-white">
 											<span class="sr-only">Close panel</span>
 											<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
 												<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
